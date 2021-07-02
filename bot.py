@@ -41,7 +41,7 @@ async def on_member_join(member):
     )
 """
 
-@bot.command(name='create-channel')
+@bot.command(name='create-channel', help='Creates a channel')
 @commands.has_role('admin')
 async def create_channel(ctx, channel_name='new-channel'):
     guild = ctx.guild
