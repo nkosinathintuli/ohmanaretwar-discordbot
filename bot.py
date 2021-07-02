@@ -1,14 +1,22 @@
 import os
 import random
+# import discord
 
-import discord
 from dotenv import load_dotenv
+
+from discord.ext import commands
 
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
 GUILD = os.getenv('DISCORD_GUILD')
 
-client = discord.Client()
+bot = commands.Bot(command_prefix='!')
+# client = discord.Client()
+
+@bot.event
+async def on_ready():
+    print(f'{bot.user.name} has connected to Discord!')
+
 
 """
 @client.event
@@ -19,7 +27,7 @@ async def on_ready():
         f'{guild.name}(id: {guild.id})'
     )
 """
-
+"""
 @client.event
 async def on_ready():
     print(f'{client.user.name} has connected to Discord!')
@@ -61,5 +69,7 @@ async def on_error(event, *args, **kwargs):
         else:
             raise
 
-        
+
 client.run(TOKEN)
+"""
+bot.run(TOKEN)
